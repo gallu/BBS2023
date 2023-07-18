@@ -1,0 +1,19 @@
+{# index.twig #}
+<!doctype html>
+
+<h1>BBS</h1>
+<form action="./write.php" method="POST">
+お名前:<input name="name"><br>
+タイトル:<input name="title"><br>
+本文:<textarea name="body"></textarea><br>
+<button>投稿する</button>
+</form>
+
+<hr>
+{% for key, val in data %}
+    {{ val.name }}<br>
+    {{ val.title }}<br>
+    {{ val.created_at|date("Y/m/d H:i") }}<br>
+    <pre>{{ val.body }}</pre><br>
+    <hr>
+{% endfor %}
